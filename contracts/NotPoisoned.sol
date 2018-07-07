@@ -1,4 +1,4 @@
-pragma solidity 0.4.19;
+pragma solidity 0.4.24;
 
 import "./AuctionInterface.sol";
 
@@ -8,11 +8,11 @@ contract NotPoisoned {
 	address target;
 
 	/* Constructor */
-	function NotPoisoned() payable {}
+	constructor() payable {}
 
 	/* Bid function */
 	function bid(uint amount) external {
-		if ((amount <= this.balance) && (target != address(0))) {
+		if ((amount <= address(this).balance) && (target != address(0))) {
 			AuctionInterface _target = AuctionInterface(target);
 			_target.bid.value(amount)();
 		}
@@ -36,7 +36,7 @@ contract NotPoisoned {
 	}
 
 	function getBalance() constant returns (uint) {
-		return this.balance;
+		return address(this).balance;
 	}
 
 	function() payable {}

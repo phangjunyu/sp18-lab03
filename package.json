@@ -1,0 +1,23 @@
+{
+  "name": "sp18-lab03",
+  "version": "1.0.0",
+  "description": "Welcome to lab03. In this assignment you'll be getting acclimated with external calls, inheritance, and smart contract security.",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phangjunyu/sp18-lab03.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phangjunyu/sp18-lab03/issues"
+  },
+  "homepage": "https://github.com/phangjunyu/sp18-lab03#readme"
+}

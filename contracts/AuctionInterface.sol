@@ -1,4 +1,4 @@
-pragma solidity 0.4.19;
+pragma solidity 0.4.24;
 
 /** @title AuctionInterface */
 contract AuctionInterface {
@@ -6,10 +6,10 @@ contract AuctionInterface {
 	uint highestBid;
 	function bid() payable external returns (bool);
 	function reduceBid() external;
-	function getHighestBidder() constant returns (address) {
+	function getHighestBidder() external constant returns (address) {
 		return highestBidder;
 	}
-	function getHighestBid() constant returns (uint) {
+	function getHighestBid() external constant returns (uint) {
 		return highestBid;
 	}
 }

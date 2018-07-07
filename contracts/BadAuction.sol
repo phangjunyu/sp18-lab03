@@ -1,4 +1,4 @@
-pragma solidity 0.4.19;
+pragma solidity 0.4.24;
 
 import "./AuctionInterface.sol";
 
@@ -14,15 +14,24 @@ contract BadAuction is AuctionInterface {
 	 */
 	function bid() payable external returns (bool) {
 		// YOUR CODE HERE
+		if (msg.value <= highestBid){
+			msg.sender.send(msg.value);
+			return false;
+		} else {
+			highestBidder.send(highestBid);
+			highestBidder = msg.sender;
+			highestBid = msg.value;
+			return true;
+		}
 	}
 
 
 	/* 	Reduce bid function. Vulnerable to attack.
-		Allows current highest bidder to reduce 
+		Allows current highest bidder to reduce
 		their bid by 1. Do NOT make changes here.
 		Instead notice the vulnerabilities, and
 		implement the function properly in GoodAuction.sol  */
-	
+
 	function reduceBid() external {
 	    if (highestBid >= 0) {
 	        highestBid = highestBid - 1;
@@ -40,8 +49,9 @@ contract BadAuction is AuctionInterface {
 		want to profit on people's mistakes.
 		How do we send people their money back?  */
 
-	function () payable {
+	function () external payable {
 		// YOUR CODE HERE
+		revert();
 	}
 
 }
